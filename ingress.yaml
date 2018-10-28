@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    ing: wordpress
+  annotations:
+        kubernetes.io/ingress.class: "gce"
+  name: wordpress
+spec:
+  tls:
+  - secretName: ingress-tls
+  backend:
+    serviceName: wordpress-rs
+    servicePort: 80
+
